@@ -1,0 +1,27 @@
+/* Project content specific styles */
+.project-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5rem auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.project-content .prose {
+  max-width: 100%;
+}
+
+.project-content .prose img {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Add responsive styles for smaller screens */
+@media (max-width: 768px) {
+  .project-content .prose img {
+    max-width: 100%;
+  }
+}
+

@@ -1,0 +1,279 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 0%;
+  --foreground: 0 0% 100%;
+
+  --card: 0 0% 5%;
+  --card-foreground: 0 0% 100%;
+
+  --popover: 0 0% 5%;
+  --popover-foreground: 0 0% 100%;
+
+  --primary: 0 0% 100%;
+  --primary-foreground: 0 0% 0%;
+
+  --secondary: 0 0% 10%;
+  --secondary-foreground: 0 0% 100%;
+
+  --muted: 0 0% 15%;
+  --muted-foreground: 0 0% 70%;
+
+  --accent: 0 0% 15%;
+  --accent-foreground: 0 0% 100%;
+
+  --destructive: 0 100% 50%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 0 0% 20%;
+  --input: 0 0% 20%;
+  --ring: 0 0% 70%;
+
+  --radius: 0.5rem;
+
+  /* Add cream text color */
+  --cream-text: 60 30% 96%;
+  --cream-text-muted: 60 15% 90%;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: black;
+  color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Horizontal scrolling for project categories */
+.categories-scroll {
+  @apply flex gap-3 overflow-x-auto pb-4 px-4 md:px-0;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+}
+
+.categories-scroll > * {
+  scroll-snap-align: start;
+}
+
+/* Stars animation */
+.stars,
+.stars2,
+.stars3 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  will-change: transform; /* Optimize for animation */
+  backface-visibility: hidden; /* Reduce painting */
+  transform: translateZ(0); /* Force GPU acceleration */
+}
+
+.stars {
+  background: transparent url("/stars.png") repeat;
+  animation: stars-animation 200s linear infinite;
+}
+
+.stars2 {
+  background: transparent url("/stars.png") repeat;
+  animation: stars-animation 150s linear infinite;
+}
+
+.stars3 {
+  background: transparent url("/stars.png") repeat;
+  animation: stars-animation 100s linear infinite;
+}
+
+@keyframes stars-animation {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-1000px);
+  }
+}
+
+/* Royal theme enhancements */
+.royal-gradient {
+  @apply bg-gradient-to-r from-yellow-500 via-yellow-200 to-yellow-500 bg-clip-text text-transparent;
+}
+
+.royal-border {
+  @apply border-yellow-500/50 hover:border-yellow-500;
+}
+
+.royal-glow {
+  @apply hover:shadow-[0_0_20px_rgba(234,179,8,0.3)];
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgb(17, 24, 39); /* bg-gray-900 */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(55, 65, 81); /* bg-gray-700 */
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(75, 85, 99); /* bg-gray-600 */
+}
+
+/* Background patterns */
+.bg-grid-pattern {
+  background-image: linear-gradient(to right, rgb(50 50 50 / 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(50 50 50 / 0.1) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Animation utilities */
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* Golden glow effects */
+.golden-glow {
+  box-shadow: 0 0 15px rgba(234, 179, 8, 0.3);
+}
+
+.golden-text-glow {
+  text-shadow: 0 0 10px rgba(234, 179, 8, 0.3);
+}
+
+.golden-border-glow:hover {
+  box-shadow: 0 0 15px rgba(234, 179, 8, 0.2);
+  border-color: rgba(234, 179, 8, 0.5);
+}
+
+/* Responsive typography */
+@media (max-width: 640px) {
+  h1,
+  .h1 {
+    font-size: 2rem;
+  }
+  h2,
+  .h2 {
+    font-size: 1.75rem;
+  }
+  h3,
+  .h3 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Accessibility improvements */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Focus styles for better accessibility */
+:focus-visible {
+  outline: 2px solid rgba(234, 179, 8, 0.5);
+  outline-offset: 2px;
+}
+
+/* Timeline dropdown transition */
+.timeline-dropdown-enter {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.timeline-dropdown-enter-active {
+  max-height: 1000px;
+  opacity: 1;
+  transition: max-height 500ms ease, opacity 300ms ease;
+  overflow: hidden;
+}
+
+.timeline-dropdown-exit {
+  max-height: 1000px;
+  opacity: 1;
+  overflow: hidden;
+}
+
+.timeline-dropdown-exit-active {
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 500ms ease, opacity 300ms ease;
+  overflow: hidden;
+}
+
+/* Enhanced button animations */
+.resume-button {
+  box-shadow: 0 4px 6px rgba(234, 179, 8, 0.1);
+}
+
+.resume-button:hover {
+  box-shadow: 0 8px 15px rgba(234, 179, 8, 0.3);
+  transform: translateY(-2px);
+}
+
+.resume-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(234, 179, 8, 0.2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .resume-button,
+  .resume-button * {
+    transition-duration: 0.001ms !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stars,
+  .stars2,
+  .stars3 {
+    animation: none;
+  }
+
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Hero section background adjustments */
+.hero-background {
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+}
+
