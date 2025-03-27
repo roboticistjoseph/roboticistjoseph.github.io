@@ -41,11 +41,15 @@
 /* Base styles */
 html {
   scroll-behavior: smooth;
+  /* Improve scrolling performance */
+  -webkit-overflow-scrolling: touch;
 }
 
 body {
   background-color: black;
   color: white;
+  /* Prevent content shift */
+  overflow-y: scroll;
 }
 
 /* Responsive adjustments */
@@ -67,7 +71,7 @@ body {
   scroll-snap-align: start;
 }
 
-/* Stars animation */
+/* Stars animation - optimized for performance */
 .stars,
 .stars2,
 .stars3 {
@@ -121,8 +125,8 @@ body {
 
 /* Scrollbar styling */
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -251,14 +255,13 @@ body {
   box-shadow: 0 2px 4px rgba(234, 179, 8, 0.2);
 }
 
+/* Reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
   .resume-button,
   .resume-button * {
     transition-duration: 0.001ms !important;
   }
-}
 
-@media (prefers-reduced-motion: reduce) {
   .stars,
   .stars2,
   .stars3 {
@@ -269,11 +272,33 @@ body {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
+
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 /* Hero section background adjustments */
 .hero-background {
   background-color: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(5px);
+}
+
+/* Responsive image handling */
+.responsive-image {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Improved mobile navigation */
+@media (max-width: 768px) {
+  .categories-scroll {
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .timeline-item {
+    padding-left: 2rem;
+  }
 }
 

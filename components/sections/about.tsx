@@ -1,15 +1,11 @@
 "use client"
 
-import { useEffect } from "react"
-
 import { motion, useScroll, useTransform } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef } from "react"
 import Image from "next/image"
 import { Download } from "lucide-react"
 import Link from "next/link"
-import { Canvas, useFrame } from "@react-three/fiber"
-import * as THREE from "three"
 import { COLORS } from "@/constants/theme"
 import { SECTIONS } from "@/constants/theme"
 import SectionHeading from "@/components/ui/section-heading"
@@ -19,6 +15,7 @@ import { BotIcon as Robot, Guitar, Camera, Palette, Plane, Dumbbell } from "luci
 /**
  * About section component
  * Displays personal information, skills, and interests
+ * Optimized for performance by removing 3D particles
  */
 export default function About() {
   const ref = useRef(null)
@@ -41,7 +38,7 @@ export default function About() {
           <div className="flex flex-col md:flex-row gap-10 items-center">
             {/* Profile Image */}
             <motion.div className="md:w-1/3" style={{ x: useTransform(scrollYProgress, [0, 1], ["-50%", "0%"]) }}>
-              <div className="relative w-96 h-96 mx-auto">
+              <div className="relative w-64 h-64 md:w-96 md:h-96 mx-auto">
                 {/* Golden glow effect */}
                 <div className="absolute -inset-4 bg-yellow-500/20 rounded-full blur-xl animate-pulse"></div>
                 <div
@@ -51,11 +48,11 @@ export default function About() {
 
                 <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-gray-800 to-gray-900 animate-pulse"></div>
                 <Image
-                  src={aboutData.profileImage || "/placeholder.svg"}
+                  src="https://res.cloudinary.com/dzujcleva/image/upload/v1742059079/about_r3wkqw.jpg"
                   alt="Profile"
                   width={384}
                   height={384}
-                  className="rounded-full p-1 relative z-10"
+                  className="rounded-full p-1 relative z-10 responsive-image"
                 />
                 <div className="absolute inset-0 rounded-full border border-yellow-500/50 z-20"></div>
               </div>
@@ -101,15 +98,7 @@ export default function About() {
         </motion.div>
       </div>
 
-      {/* 3D Particles Background */}
-      <div className="absolute inset-0 -z-10">
-        <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
-          <ambientLight intensity={0.2} />
-          <pointLight position={[10, 10, 10]} intensity={0.2} />
-          <Particles count={100} />
-        </Canvas>
-      </div>
-
+      {/* Static gradient background instead of 3D particles */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(50,50,50,0.2)_0,rgba(0,0,0,0)_70%)] pointer-events-none z-0"></div>
     </section>
   )
@@ -160,47 +149,6 @@ function InterestCard({ interest, index }: { interest: any; index: number }) {
         <span className={`text-sm ${COLORS.primary.cream} mt-2`}>{interest.name}</span>
       </div>
     </motion.div>
-  )
-}
-
-/**
- * Particles component for 3D background
- * Creates floating particles in the 3D space
- *
- * @param count - Number of particles to render
- */
-function Particles({ count = 100 }) {
-  const mesh = useRef<THREE.InstancedMesh>(null)
-  const dummy = useRef(new THREE.Object3D())
-
-  useEffect(() => {
-    if (mesh.current) {
-      for (let i = 0; i < count; i++) {
-        dummy.current.position.set((Math.random() - 0.5) * 20, (Math.random() - 0.5) * 20, (Math.random() - 0.5) * 20)
-        dummy.current.updateMatrix()
-        mesh.current.setMatrixAt(i, dummy.current.matrix)
-      }
-      mesh.current.instanceMatrix.needsUpdate = true
-    }
-  }, [count])
-
-  useFrame((state) => {
-    if (mesh.current) {
-      for (let i = 0; i < count; i++) {
-        mesh.current.getMatrixAt(i, dummy.current.matrix)
-        dummy.current.position.y += 0.005 * Math.sin(state.clock.elapsedTime + i)
-        dummy.current.updateMatrix()
-        mesh.current.setMatrixAt(i, dummy.current.matrix)
-      }
-      mesh.current.instanceMatrix.needsUpdate = true
-    }
-  })
-
-  return (
-    <instancedMesh ref={mesh} args={[undefined, undefined, count]}>
-      <sphereGeometry args={[0.03, 16, 16]} />
-      <meshStandardMaterial color="#ffffff" emissive="#333333" transparent opacity={0.6} />
-    </instancedMesh>
   )
 }
 

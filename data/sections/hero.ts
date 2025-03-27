@@ -3,9 +3,8 @@ export const heroData = {
   descriptions: [
     "Robotic Software Engineer",
     "Automation Engineer",
-    "Building cute robots",
-    "AI and Technology",
     "Humanoid Robotics",
+    "Building Cute Robots",
   ],
   ctaButton: {
     text: "Discover My Work",

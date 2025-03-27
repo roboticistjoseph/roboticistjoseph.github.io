@@ -9,33 +9,37 @@ export const timelineData = {
       organization: "University of Maryland, College Park",
       date: "2021 - 2023",
       description:
-        "Specialized in autonomous systems and artificial intelligence. Thesis on 'Deep Reinforcement Learning for Robotic Manipulation Tasks'.",
+        "Specialized in core fundamentals of robotics and honed good software practises for developing robotic applications using C++ and Python",
       type: "education",
-      logo: "/placeholder.svg?height=50&width=50",
+      logo: "https://res.cloudinary.com/dzujcleva/image/upload/v1742035615/1_masters_logo_umd_fjhazn.png",
       details: [
         {
-          title: "Master's Thesis",
-          description: "Deep Reinforcement Learning for Robotic Manipulation Tasks.",
+          title: "Building Manufacturing Robot Software System",
+          description: "Developed a software system using C++ and Python for the ARIAC competition, simulating advanced kit building and assembly in a virtual warehouse environment.",
         },
         {
-          title: "Controls Course",
-          description: "Advanced study of control systems for robotic applications.",
+          title: "Software Development for Robotics",
+          description: "Mastered industry-standard software development practices through a series of challenging C++ projects, mirroring real-world robotics industry workflows.",
         },
         {
-          title: "Computer Vision Course",
-          description: "Comprehensive study of computer vision algorithms and applications in robotics.",
+          title: "Perception for Autonomous Robots",
+          description: "Delved into the intricacies of computer vision, exploring advanced image processing techniques crucial for developing perceptive autonomous systems.",
         },
         {
-          title: "Rehab Robotics Course ENPM667",
-          description: "Specialized course on rehabilitation robotics.",
+          title: "Robot Modelling (Kinematics & Dynamics)",
+          description: "Leveraged linear algebra concepts to build robotic arm control systems from the ground up, gaining deep insights into the principles of kinematics and dynamics.",
         },
         {
-          title: "Advanced Robotics Project",
-          description: "Implemented a multi-agent collaborative robot system for warehouse automation.",
+          title: "Planning for Autonomous Robots",
+          description: "Implemented and analyzed various path planning algorithms including DFS, BFS, Dijkstra, A*, and RRT, evaluating their performance in diverse simulated scenarios.",
         },
         {
-          title: "Computer Vision Research",
-          description: "Researched 3D object recognition techniques for robotic pick-and-place tasks.",
+          title: "Controls for Robotic Systems",
+          description: "Explored the foundations of control theory, including advanced filtering techniques and controllers like PID and LQR. Gained expertise in state space estimation and system controllability.",
+        },
+        {
+          title: "Independent Research Study- Swarm Robotics",
+          description: "Conducted innovative research on swarm algorithms, comparing the efficiency of single and paired kilobots in forming concentric circles. Findings were compiled into a comprehensive academic paper.",
         },
       ],
     },
@@ -46,19 +50,31 @@ export const timelineData = {
       date: "2016 - 2020",
       description: "Focused on algorithms, data structures, and machine learning fundamentals. Graduated with honors.",
       type: "education",
-      logo: "/placeholder.svg?height=50&width=50",
+      logo: "https://res.cloudinary.com/dzujcleva/image/upload/v1742035616/2_bachelors_logo_sat_hpnoeo.png",
       details: [
         {
-          title: "Senior Project",
-          description: "Developed an intelligent tutoring system using natural language processing.",
+          title: "Programming in MATLAB",
+          description: "Acquired foundational skills in MATLAB, focusing on its application in signal processing analysis.",
         },
         {
-          title: "Database Management System",
-          description: "Built a scalable database management system with transaction support.",
+          title: "Digital Logic Circuits",
+          description: "Explored the construction of Digital Logic Circuits using logic gates, with an introduction to PLC programming concepts.",
         },
         {
-          title: "Mobile Application Development",
-          description: "Created a cross-platform mobile app for campus navigation and event notifications.",
+          title: "Micro-controllers and Micro-processors",
+          description: "Gained experience in programming 8085 and 8086 microcontrollers using assembly language. Introduced to modern microcontroller architectures like Cortex ARM M5 for basic applications.",
+        },
+        {
+          title: "Engineering Mathematics",
+          description: "Studied essential mathematical concepts including Laplace and Fourier transforms, Calculus, Linear Algebra, and Trigonometry, forming a solid foundation for engineering applications.",
+        },
+        {
+          title: "Programming in C & C++",
+          description: "Developed a strong foundation in C and C++ programming languages, with additional exposure to modern C++ concepts and parallel programming techniques.",
+        },
+        {
+          title: "Embedded systems",
+          description: "Explored the theory and architecture of embedded systems, understanding the importance of low-level programming in managing memory constraints for various applications.",
         },
       ],
     },
@@ -68,47 +84,33 @@ export const timelineData = {
       id: 4,
       title: "Automation Engineer",
       organization: "Rivian",
-      date: "2021 - Present",
+      date: "2023 - Present",
       description:
         "Leading the development of autonomous robotic systems for industrial applications. Implementing machine learning algorithms for improved robot perception and decision-making.",
       type: "experience",
-      logo: "/placeholder.svg?height=50&width=50",
+      logo: "https://res.cloudinary.com/dzujcleva/image/upload/v1742035617/1_riv_logo_pxqnlo.jpg",
       details: [
         {
-          title: "Downtime Reduction Initiative",
+          title: "Production Line",
           description:
-            "Led a cross-functional team that reduced system downtime by 20% through predictive maintenance algorithms.",
+            "Active part of the installation, maintenance, and troubleshooting of ABB robots; Ensured high-quality painted units and minimized downtime by proactively managing production processes.",
         },
         {
-          title: "Efficiency Optimization",
-          description: "Increased overall production efficiency by 5% by optimizing robot path planning.",
+          title: "Cost Savings Projects",
+          description: "Developed RAPID programming scripts for ABB robots using RobotStudio; Automated calculations for units-vs-vision fails and material consumption, while monitoring robot health to prevent issues.",
         },
         {
-          title: "Single Point Lessons (SPL) Program",
-          description: "Created comprehensive SPL documentation for operators and maintenance staff.",
-        },
-        {
-          title: "Autonomous Navigation System",
-          description: "Developed a robust navigation system for warehouse robots.",
-        },
-        {
-          title: "Machine Vision Pipeline",
-          description:
-            "Designed and implemented a real-time machine vision pipeline for detecting and classifying objects.",
-        },
-        {
-          title: "Human-Robot Collaboration Framework",
-          description:
-            "Created a safety-first framework enabling robots to work alongside humans in manufacturing environments.",
+          title: "Maintenance and Efficiency Work",
+          description: "Created calibration routines for resolver offsets and assisted in improving workflows and rebuilding equipment as needed.",
         },
       ],
       gallery: {
-        title: "Robotics Projects",
+        title: "Manufacturing Robotics",
         images: [
-          { src: "/placeholder.svg?height=200&width=300&text=Robot+Arm", alt: "Robot Arm Prototype" },
-          { src: "/placeholder.svg?height=200&width=300&text=Navigation+System", alt: "Navigation System" },
-          { src: "/placeholder.svg?height=200&width=300&text=Vision+System", alt: "Computer Vision System" },
-          { src: "/placeholder.svg?height=200&width=300&text=Team+Collaboration", alt: "Team Collaboration" },
+          { src: "https://res.cloudinary.com/dzujcleva/image/upload/v1742035617/2_paint_ukd4pp.jpg", alt: "Paint Robots" },
+          { src: "https://res.cloudinary.com/dzujcleva/image/upload/v1742035617/3_abb_sim_tpryj6.png", alt: "ABB Simulation" },
+          { src: "https://res.cloudinary.com/dzujcleva/image/upload/v1742035617/1_IRB5500_nilgqv.jpg", alt: "IRB5500" },
+          { src: "https://res.cloudinary.com/dzujcleva/image/upload/v1742035617/4_IRB4400_wkalte.jpg", alt: "IRB4400" },
         ],
       },
     },
@@ -120,42 +122,78 @@ export const timelineData = {
       description:
         "Developed and deployed machine learning models for computer vision applications. Collaborated with cross-functional teams to integrate AI solutions into existing products.",
       type: "experience",
-      logo: "/placeholder.svg?height=50&width=50",
+      logo: "https://res.cloudinary.com/dzujcleva/image/upload/v1742035616/1_stryker_logo_pca6fh.jpg",
       details: [
         {
-          title: "Retail Analytics Platform",
-          description: "Built an AI-powered retail analytics platform.",
+          title: "Component Testing",
+          description:
+            "Developed efficient and optimized component-level test cases using advanced C++ concepts, making a significant contribution to the development of production-level code.",
         },
         {
-          title: "Natural Language Interface",
-          description: "Developed a natural language interface for database querying.",
+          title: "Registration",
+          description: "Ensured the properfunctioning of bone registration algorithms, known for their challenging tech stacks, by covering approximately 20 percent of the workflow.",
         },
         {
-          title: "Predictive Maintenance System",
-          description: "Implemented a predictive maintenance system for manufacturing equipment.",
+          title: "Shared Point Lessons",
+          description: "Created easily understandable diagrams and crafted flowcharts for Software Design Description (SDD) to document my learning and presented them to the company; These resources were retained by the company to streamline code comprehension, accelerate the learning of future interns, and improve productivity.",
+        },
+        {
+          title: "Onboaridng",
+          description: "Identified hindrances in the new hire onboarding process and developed a report to address them,resulting in a reduction of setup time, increased productivity, and ensured a smooth transition for new employees.",
+        },
+        {
+          title: "Work Demo",
+          description: "Demonstrated a quick understanding of the complexities of bone registration and applied my knowledge to create effective test cases, presenting my work to the entire company at the end of summer; Received high praise for my contributions.",
+        },
+        {
+          title: "Development Tools",
+          description: "Utilized various development tools such as Perforce, Qt, Docker, Jira, and SDLC to streamline the development process and contribute to the overall success of the team and the company.",
         },
       ],
+      gallery: {
+        title: "Surgical Robotics",
+        images: [
+          { src: "https://res.cloudinary.com/dzujcleva/image/upload/v1742035617/1_intern_qnv2tg.jpg", alt: "Internship" },
+          { src: "https://res.cloudinary.com/dzujcleva/image/upload/v1742035617/2_mako_pwbbgb.jpg", alt: "MAKO 3.5" },
+          { src: "https://res.cloudinary.com/dzujcleva/image/upload/v1742035617/3_knee_brsvru.jpg", alt: "Knee Replacement" },
+          { src: "https://res.cloudinary.com/dzujcleva/image/upload/v1742035617/4_reg_gsthpb.png", alt: "Registration" },
+        ],
+      },
     },
     {
       id: 6,
       title: "Research Assistant",
       organization: "University of Maryland, CP",
       date: "Jan 2023 - May 2023",
-      description: "Conducted research on reinforcement learning algorithms for robotic control systems.",
+      description: "Conducted research on Concentric circle formation algorithms for swarm Kilobots",
       type: "experience",
-      logo: "/placeholder.svg?height=50&width=50",
+      logo: "https://res.cloudinary.com/dzujcleva/image/upload/v1742035616/1_research_logo_umd_ie6pd9.png",
       details: [
         {
-          title: "Reinforcement Learning for Robotics",
+          title: "Swarm Algorithm Experiments",
           description:
-            "Researched and implemented novel reinforcement learning approaches for complex robotic manipulation tasks.",
+            "Conducted a series of captivating experiments to investigate and compare the performance of kilobots when operating individually versus in pairs, or DUOs, to dynamically observe how they form various shape formations; Analyzed and interpreted the results to gain insights into their behavior and capabilities.",
         },
         {
-          title: "Simulation Environment Development",
+          title: "Embedded C coding",
           description:
-            "Developed high-fidelity simulation environments for training and testing robotic control algorithms.",
+            "Modified and organized the codebase, correcting errors,removing redundant code, and providing clear explanations using flowcharts and README documentation;Thoroughly documented forfuture maintenance support. Assisted with the triangulation method of concentric circle formation in DUO's",
+        },
+        {
+          title: "Modelling",
+          description:
+            "Designed and developed physical chassis for kilobots with collision avoidance mechanisms to prevent attachments during operation, significantly improving their overall performance and durability, and contributing to the success of project",
         },
       ],
+      gallery: {
+        title: "Kilobots",
+        images: [
+          { src: "https://res.cloudinary.com/dzujcleva/image/upload/v1742035616/1_kilobots_rgyfhj.jpg", alt: "Kilobots" },
+          { src: "https://res.cloudinary.com/dzujcleva/image/upload/v1742035616/4_kilo_prgm_gw35tu.jpg", alt: "Deploying Code" },
+          { src: "https://res.cloudinary.com/dzujcleva/image/upload/v1742035616/2_single_ytwqaq.jpg", alt: "Single's Circle" },
+          { src: "https://res.cloudinary.com/dzujcleva/image/upload/v1742035616/3_duo_dbqyjb.jpg", alt: "Duo's Circle" },
+        ],
+      },
     },
   ] as TimelineItem[],
 }

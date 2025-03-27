@@ -4,22 +4,18 @@ import { getAllProjects } from "@/utils/project-loader"
 export const projectCategories = [
   { id: "all", name: "All Projects" },
   { id: "robotics", name: "Robotics" },
-  { id: "ai", name: "AI & ML" },
-  { id: "web", name: "Web & IoT" },
-  { id: "research", name: "Research" },
-  { id: "blockchain", name: "Blockchain" },
-  { id: "mobile", name: "Mobile Apps" },
-  { id: "game", name: "Game Dev" },
-  { id: "cloud", name: "Cloud" },
-  { id: "security", name: "Security" },
+  { id: "ros2", name: "ROS 2" },
+  { id: "modelling", name: "Robot Modelling" },
+  { id: "cv", name: "Computer Vision" },
+  { id: "nav", name: "Robot Navigation" },
+  { id: "controls", name: "Control Systems" },
+  { id: "ml", name: "Machine Learning" },
+  { id: "research", name: "Research Papers" },
 ]
 
-// Get all projects from the data/projects directory
-const allProjects = getAllProjects()
-
-// Projects data
+// Projects data - dynamically loaded from project files
 export const projectsData = {
-  title: "Projects",
-  projects: allProjects,
+  title: "Featured Projects",
+  projects: getAllProjects(),
 }
 

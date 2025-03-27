@@ -6,8 +6,6 @@ import { useRef, useState } from "react"
 import Image from "next/image"
 import { ExternalLink, Github } from "lucide-react"
 import Link from "next/link"
-import { Canvas } from "@react-three/fiber"
-import { Environment } from "@react-three/drei"
 import { COLORS } from "@/constants/theme"
 import { SECTIONS } from "@/constants/theme"
 import SectionHeading from "@/components/ui/section-heading"
@@ -17,11 +15,11 @@ import { projectsData, projectCategories } from "@/data/sections/projects"
 /**
  * Projects section component
  * Displays a filterable grid of projects
+ * Optimized for performance by removing 3D background
  */
 export default function Projects() {
   const [activeCategory, setActiveCategory] = useState("robotics")
   const ref = useRef(null)
-  // Remove this line as isMobile is not used
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -29,7 +27,6 @@ export default function Projects() {
   })
 
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.9, 1], [0, 1, 1, 0])
-  // Remove the unused y variable:
 
   // Filter projects based on active category
   const filteredProjects = projectsData.projects.filter(
@@ -90,15 +87,7 @@ export default function Projects() {
         </motion.div>
       </div>
 
-      {/* 3D Background */}
-      <div className="absolute inset-0 -z-0">
-        <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
-          <ambientLight intensity={0.2} />
-          <pointLight position={[10, 10, 10]} intensity={0.2} />
-          <Environment preset="city" />
-        </Canvas>
-      </div>
-
+      {/* Static gradient background instead of 3D canvas */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(50,50,50,0.2)_0,rgba(0,0,0,0)_70%)]"></div>
     </section>
   )
@@ -132,24 +121,59 @@ function ProjectCardWrapper({
   )
 }
 
-/**
- * Project card component
- * Displays a single project with image, title, description, and links
- *
- * @param project - Project data
- */
+// Update the ProjectCard component to safely access the year field
 function ProjectCard({ project }: { project: Project }) {
+  // Function to get status badge color
+  const getStatusColor = (status?: string) => {
+    switch (status) {
+      case "Published":
+        return "bg-green-500 text-black"
+      case "Unpublished":
+        return "bg-yellow-500 text-black"
+      case "Waiting Approval":
+        return "bg-blue-500 text-black"
+      default:
+        return ""
+    }
+  }
+
   return (
     <div className="group bg-gray-900/70 rounded-lg overflow-hidden border border-gray-800 hover:border-yellow-500/70 transition-all duration-300 h-full flex flex-col hover:shadow-[0_0_30px_rgba(234,179,8,0.1)] transform hover:-translate-y-2">
+      {/* Project Image  transform hover:-translate-y-2">
       {/* Project Image */}
       <div className="relative overflow-hidden h-48">
         <Image
-          src={project.image || "/placeholder.svg"}
+          src={
+            project.image.startsWith("/placeholder")
+              ? `https://res.cloudinary.com/your-cloud-name/image/upload/w_600,h_400,c_fill/projects/${project.id}`
+              : project.image
+          }
           alt={project.title}
           width={600}
           height={400}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
+
+        {/* Year Tag - Less flashy */}
+        {project.metadata?.year && (
+          <div className="absolute top-4 right-4">
+            <span className="bg-gray-800/80 border border-yellow-500/30 text-yellow-400 text-xs px-2 py-1 rounded-md">
+              {project.metadata.year}
+            </span>
+          </div>
+        )}
+
+        {/* Status Badge - Flashy */}
+        {project.metadata?.status && (
+          <div className="absolute bottom-4 right-4">
+            <span
+              className={`${getStatusColor(project.metadata.status)} px-2 py-1 rounded-md text-xs font-medium shadow-lg animate-pulse`}
+            >
+              {project.metadata.status}
+            </span>
+          </div>
+        )}
+
         <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
       </div>
 
@@ -187,28 +211,38 @@ function ProjectCard({ project }: { project: Project }) {
               <span className="sr-only">GitHub</span>
             </a>
           )}
-          {project.links.demo &&
-            (project.links.demo.startsWith("/") ? (
-              <Link
-                href={project.links.demo}
-                className="text-gray-400 hover:text-white transition-colors"
-                aria-label={`View details for ${project.title}`}
-              >
-                <ExternalLink className="h-5 w-5" />
-                <span className="sr-only">View Project</span>
-              </Link>
-            ) : (
-              <a
-                href={project.links.demo}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors"
-                aria-label={`Live demo for ${project.title}`}
-              >
-                <ExternalLink className="h-5 w-5" />
-                <span className="sr-only">Live Demo</span>
-              </a>
-            ))}
+          {project.links.documentation ? (
+            <a
+              href={project.links.documentation}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-white transition-colors"
+              aria-label={`Documentation for ${project.title}`}
+            >
+              <ExternalLink className="h-5 w-5" />
+              <span className="sr-only">Documentation</span>
+            </a>
+          ) : project.links.demo && project.links.demo.startsWith("/") ? (
+            <Link
+              href={project.links.demo}
+              className="text-gray-400 hover:text-white transition-colors"
+              aria-label={`View details for ${project.title}`}
+            >
+              <ExternalLink className="h-5 w-5" />
+              <span className="sr-only">View Project</span>
+            </Link>
+          ) : project.links.demo ? (
+            <a
+              href={project.links.demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-white transition-colors"
+              aria-label={`Live demo for ${project.title}`}
+            >
+              <ExternalLink className="h-5 w-5" />
+              <span className="sr-only">Live Demo</span>
+            </a>
+          ) : null}
         </div>
       </div>
     </div>

@@ -163,7 +163,11 @@ function TimelineItem({ item, index, isExpanded, isGalleryExpanded, toggleExpand
           <div className="flex items-center justify-between mb-3 flex-wrap">
             <div className="flex items-center">
               <Image
-                src={item.logo || "/placeholder.svg"}
+                src={
+                  item.logo.startsWith("/placeholder")
+                    ? `https://res.cloudinary.com/your-cloud-name/image/upload/w_48,h_48,c_fill/organizations/${item.organization.toLowerCase().replace(/\s+/g, "-")}`
+                    : item.logo
+                }
                 alt={item.organization}
                 width={48}
                 height={48}
@@ -276,7 +280,11 @@ function TimelineItem({ item, index, isExpanded, isGalleryExpanded, toggleExpand
               {galleryImages.map((image, idx) => (
                 <div key={idx} className="relative overflow-hidden rounded-lg group">
                   <Image
-                    src={image.src || "/placeholder.svg"}
+                    src={
+                      image.src.startsWith("/placeholder")
+                        ? `https://res.cloudinary.com/your-cloud-name/image/upload/w_300,h_200,c_fill/gallery/${idx + 1}`
+                        : image.src
+                    }
                     alt={image.alt}
                     width={300}
                     height={200}

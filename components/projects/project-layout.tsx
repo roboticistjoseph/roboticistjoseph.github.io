@@ -21,10 +21,12 @@ export default function ProjectLayout({ children }: ProjectLayoutProps) {
   return (
     <main className="min-h-screen bg-black text-white">
       <div className="container mx-auto px-4 py-8">
-        {/* Back Button */}
+        {/* Back Button - Enhanced visibility */}
         <Link
           href="/#projects"
-          className="inline-flex items-center text-gray-400 hover:text-white transition-colors mb-8"
+          className="inline-flex items-center px-4 py-2 mb-8 border border-gray-700 
+                    rounded-md bg-gray-900 text-gray-200 hover:bg-gray-800 
+                    hover:text-white transition-colors duration-300 shadow-sm"
         >
           <ArrowLeft className="h-4 w-4 mr-2" />
           Back to Projects

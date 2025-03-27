@@ -10,6 +10,6 @@ export const footerData = {
   copyright: "Joseph Katakam. All rights reserved.",
 
   // Additional text
-  additionalText: "Designed & Built with passion",
+  additionalText: "From Concept to Creation, Engineering a Smarter Tomorrow.",
 }
 

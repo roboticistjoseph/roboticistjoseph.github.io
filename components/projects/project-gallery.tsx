@@ -84,7 +84,11 @@ export default function ProjectGallery({ images }: ProjectGalleryProps) {
             onClick={() => openModal(index)}
           >
             <Image
-              src={image.src || "/placeholder.svg"}
+              src={
+                image.src.startsWith("/placeholder")
+                  ? `https://res.cloudinary.com/your-cloud-name/image/upload/w_800,h_600,c_fill/project-gallery/${index + 1}`
+                  : image.src
+              }
               alt={image.alt}
               width={800}
               height={600}
@@ -112,7 +116,11 @@ export default function ProjectGallery({ images }: ProjectGalleryProps) {
 
             <div className="relative overflow-hidden rounded-lg bg-gray-900 flex-grow">
               <Image
-                src={images[selectedImage].src || "/placeholder.svg"}
+                src={
+                  images[selectedImage].src.startsWith("/placeholder")
+                    ? `https://res.cloudinary.com/your-cloud-name/image/upload/w_1200,h_800,c_fill/project-gallery/${selectedImage + 1}`
+                    : images[selectedImage].src
+                }
                 alt={images[selectedImage].alt}
                 width={1200}
                 height={800}

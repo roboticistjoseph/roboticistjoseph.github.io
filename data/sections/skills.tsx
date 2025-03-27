@@ -8,12 +8,28 @@ export const skillsData = {
     {
       name: "Programming",
       icon: <Code className="w-6 h-6 text-blue-400" />,
-      items: ["C", "C++", "Python", "ABB", "Shell", "MAKE file"],
+      items: [
+        "C", 
+        "C++", 
+        "Python", 
+        "RAPID (ABB)", 
+        "Shell", 
+        "MAKE file"
+      ],
     },
     {
       name: "Software",
       icon: <Monitor className="w-6 h-6 text-green-400" />,
-      items: ["Linux", "Git", "Perforce", "VSCode", "Cursor", "Qt creator", "RobotStudio", "RobView"],
+      items: [
+        "Linux", 
+        "Git", 
+        "Perforce", 
+        "VSCode", 
+        "Cursor", 
+        "Qt creator", 
+        "RobotStudio", 
+        "RobView"
+        ],
     },
     {
       name: "Robotics",
@@ -33,7 +49,13 @@ export const skillsData = {
     {
       name: "Hardware",
       icon: <Cpu className="w-6 h-6 text-red-400" />,
-      items: ["Arduino", "Raspberry Pi", "Kilobots", "3D printing", "Autonomous Rovers"],
+      items: [
+        "Arduino", 
+        "Raspberry Pi", 
+        "Kilobots", 
+        "3D printing", 
+        "Soldering"
+        ],
     },
     {
       name: "Development",

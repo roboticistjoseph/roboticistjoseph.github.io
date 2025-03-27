@@ -1,13 +1,13 @@
 export const aboutData = {
   title: "About Me",
-  profileImage: "/placeholder.svg?height=256&width=256",
+  profileImage: "https://res.cloudinary.com/dzujcleva/image/upload/v1742035616/about_r3wkqw.jpg",
   bio: [
-    "I'm a passionate Robotics Engineer and AI Developer with over 5 years of experience building intelligent systems and solutions. My expertise spans across machine learning, computer vision, and robotic process automation.",
-    "With a background in both hardware and software development, I bring a unique perspective to solving complex problems. I'm dedicated to creating technology that enhances human capabilities and improves lives.",
+    "I'm a passionate Engineer with a Master's degree and a knack for innovation. My experience with 6-axis paint robots as a Automation engineer has honed my skills in troubleshooting both hardware and software— albeit one that requires a lot of patience and coffee. I'm committed to continuous learning and professional growth through hands-on experience.",
+    "With a background in both hardware and software development, I enjoy tackling complex problems from multiple angles. I'm excited about the potential of robotics and AI to improve lives and enhance human capabilities. I'm dedicated to contributing to this evolving field with innovative solutions.",
   ],
   resumeButton: {
     text: "Download Resume",
-    href: "https://www.google.com",
+    href: "https://drive.google.com/file/d/1_6QRyHIFryNg8HrCWB0ZwULeWAUbdU3t/view?usp=sharing",
   },
   interests: [
     { name: "Building Robots", iconName: "Robot" },
@@ -15,7 +15,7 @@ export const aboutData = {
     { name: "Photography", iconName: "Camera" },
     { name: "Art", iconName: "Palette" },
     { name: "Travelling", iconName: "Plane" },
-    { name: "Gym", iconName: "Dumbbell" },
+    { name: "Workout", iconName: "Dumbbell" },
   ],
 }
 

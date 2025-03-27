@@ -67,7 +67,11 @@
     "three": "latest",
     "@react-three/fiber": "latest",
     "framer-motion": "latest",
-    "@react-three/drei": "latest"
+    "@react-three/drei": "latest",
+    "fs": "latest",
+    "path": "latest",
+    "react-markdown": "latest",
+    "remark-gfm": "latest"
   },
   "devDependencies": {
     "@types/node": "^22",
