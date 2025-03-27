@@ -28,11 +28,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18
-          # Remove the cache option since we don't have a lock file
           
       - name: Install dependencies
-        # Use npm install instead of npm ci since we don't have a lock file
-        run: npm install
+        # Use --legacy-peer-deps to bypass peer dependency conflicts
+        run: npm install --legacy-peer-deps
         
       - name: Generate markdown content
         run: node scripts/generate-content.js
